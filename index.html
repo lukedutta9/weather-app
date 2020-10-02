@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>A Weather App</title>
+  </head>
+  <body>
+    <section class="weather-card">
+      <div class="input">
+        <input type="text" id="city" placeholder="Type a city">
+        <input type="text" id="country" placeholder="Type a country">
+        <button onclick="getWeather()">Get weather for this location</button>
+      </div>
+      <div class="output">
+        <div class="weather">
+          <img id='icon'src="src="//:0"" alt="">
+          <p id="desc"></p>
+        </div>
+        <div class="temp">
+          <div id="current-temp">
+            <h2>Current Temp</h2>
+            <p></p>
+          </div>
+          <div id="feels-like">
+            <h2>It feels like</h2>
+            <p></p>
+          </div>
+        </div>
+        <div class="other">
+          <div id="humidity">
+            <h2>Humidity</h2>
+            <p></p>
+          </div>
+          <div id="pressure">
+            <h2>Pressure</h2>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src='./js/config.js'></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
