@@ -1,6 +1,12 @@
 var currentWeatherEndpoint = "http://api.openweathermap.org/data/2.5/weather?q="
 var iconImageUrl = "http://openweathermap.org/img/wn/";
 
+function checkSubmission() {
+  if(e.key === 'Enter') {
+    alert(e.value);        
+}
+}
+
 async function getWeather() {
   var city = document.getElementById("city");
   var country = document.getElementById("country");
@@ -22,7 +28,7 @@ function updateIconAndDesc(weather) {
   var icon = document.getElementById("icon");
   var desc = document.getElementById("desc");
 
-  icon.src = iconImageUrl + weather.icon + "@2x.png";
+  icon.src = iconImageUrl + weather.icon + "@4x.png";
   desc.innerHTML = weather.description;
 }
 
@@ -36,8 +42,11 @@ function updateResults(measurements) {
   var pressure = document.getElementById("pressure")
     .getElementsByTagName("p")[0];
 
-  currTemp.innerHTML = measurements.temp;
-  feelsLike.innerHTML = measurements.feels_like;
-  humidity.innerHTML = measurements.humidity;
-  pressure.innerHTML = measurements.pressure;
+  var currTempNum = measurements.temp - 273.15;
+  var feelsLikeNum = measurements.feels_like - 273.15;
+
+  currTemp.innerHTML = currTempNum.toFixed(2) + " C";
+  feelsLike.innerHTML = feelsLikeNum.toFixed(2) + " C";
+  humidity.innerHTML = measurements.humidity + "%";
+  pressure.innerHTML = measurements.pressure + " hPa";
 }
